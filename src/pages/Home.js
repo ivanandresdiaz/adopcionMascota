@@ -1,6 +1,6 @@
 const Home = ()=>{
   return(`
-    <div class="bg-primary">
+    <div class="bg-secondary">
       <h1>Home</h1>
       <button type="button">Gatos</button>
       <button type="button">Perros</button>
