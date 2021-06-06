@@ -6,17 +6,17 @@
 // Color system
 
 // scss-docs-start gray-color-variables
-$white: #fffffe !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #d9d4e7 !default;
+$gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black: #0e172c !default;
+$black: #000 !default;
 // scss-docs-end gray-color-variables
 
 // fusv-disable
@@ -36,14 +36,14 @@ $grays: (
 // fusv-enable
 
 // scss-docs-start color-variables
-$blue: #91c1d7 !default;
+$blue: #0d6efd !default;
 $indigo: #6610f2 !default;
-$purple: #a786df !default;
+$purple: #6f42c1 !default;
 $pink: #fec7d7 !default;
 $red: #dc3545 !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
-$green: #91c1d7 !default;
+$green: #198754 !default;
 $teal: #20c997 !default;
 $cyan: #0dcaf0 !default;
 // scss-docs-end color-variables
@@ -67,7 +67,7 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary: $black !default;
+$primary: $pink !default;
 $secondary: $gray-600 !default;
 $success: $green !default;
 $info: $cyan !default;
@@ -416,135 +416,10 @@ $aspect-ratios: (
 // Typography
 //
 // Font, line-height, and color for body text, headings, and more.
-/* nunito-200 - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 200;
-  src: url("../fonts/nunito-v16-latin-200.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-200.woff2")
-      format("woff2");
-}
-/* nunito-200italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 200;
-  src: url("../fonts/nunito-v16-latin-200italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-200italic.woff2")
-      format("woff2");
-}
-/* nunito-300 - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/nunito-v16-latin-300.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-300.woff2")
-      format("woff2");
-}
-/* nunito-300italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 300;
-  src: url("../fonts/nunito-v16-latin-300italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-300italic.woff2")
-      format("woff2");
-}
-/* nunito-regular - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/nunito-v16-latin-regular.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-regular.woff2")
-      format("woff2");
-}
-/* nunito-italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 400;
-  src: url("../fonts/nunito-v16-latin-italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-italic.woff2")
-      format("woff2");
-}
-/* nunito-600 - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/nunito-v16-latin-600.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-600.woff2")
-      format("woff2");
-}
-/* nunito-600italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 600;
-  src: url("../fonts/nunito-v16-latin-600italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-600italic.woff2")
-      format("woff2");
-}
-/* nunito-700 - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/nunito-v16-latin-700.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-700.woff2")
-      format("woff2");
-}
-/* nunito-700italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 700;
-  src: url("../fonts/nunito-v16-latin-700italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-700italic.woff2")
-      format("woff2");
-}
-/* nunito-800 - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 800;
-  src: url("../fonts/nunito-v16-latin-800.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-800.woff2")
-      format("woff2");
-}
-/* nunito-800italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 800;
-  src: url("../fonts/nunito-v16-latin-800italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-800italic.woff2")
-      format("woff2");
-}
-/* nunito-900 - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: normal;
-  font-weight: 900;
-  src: url("../fonts/nunito-v16-latin-900.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-900.woff2")
-      format("woff2");
-}
-/* nunito-900italic - latin */
-@font-face {
-  font-family: "Nunito";
-  font-style: italic;
-  font-weight: 900;
-  src: url("../fonts/nunito-v16-latin-900italic.woff") format("woff"),
-    /* Modern Browsers */ url("../fonts/nunito-v16-latin-900italic.woff2")
-      format("woff2");
-}
+
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: "Nunito" system-ui, -apple-system, "Segoe UI", Roboto,
+$font-family-sans-serif: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
