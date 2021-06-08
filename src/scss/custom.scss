@@ -20,13 +20,13 @@
 }
 .column-fetch-1 {
   display: grid;
-  grid-auto-rows: 40vw;
+  grid-auto-rows: 250px;
   gap: 15px;
 }
 
 .column-fetch-2 {
   display: grid;
-  grid-auto-rows: 40vw;
+  grid-auto-rows: 250px;
   gap: 15px;
 }
 .margin-fetch-2 {
@@ -35,10 +35,10 @@
 .item-fetch {
   position: relative;
   border-radius: 16px;
-  height: 40vw;
+  height: 250px;
   z-index: 1;
   .item-fetch__details {
-    height: 40vw;
+    height: 250px;
     width: 100%;
     color: white;
     border-radius: 16px;
