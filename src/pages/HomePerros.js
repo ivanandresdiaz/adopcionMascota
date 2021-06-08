@@ -7,13 +7,12 @@ import getName from '../utils/getName.js';
 const HomePerros = async ()=>{
   const requestReady= await getDataPerros();
   const data= requestReady.message;
-  var requestName= await getName();
-  console.log('requestedNmae',requestName);
+  const requestName= await getName();
   // const makeIntoStringify= JSON.stringify(data);
   // sessionStorage.setItem('perros',makeIntoStringify);
   return(`
     <div class="container-fluid HomePage">
-      <div class="p-3">
+      <div class="p-3 pb-5 contenedor-body-fetch">
         <h1 class="font-weight-bold">Adopta una adorable mascota  </h1>
         <div class="mascotas-fetch">
           <p class="font-weight-light">Categorias de mascotas</p>
@@ -31,15 +30,14 @@ const HomePerros = async ()=>{
             ${
               data.map((pet, index) => {
                 const dataName= requestName[index];
-                console.log(dataName);
                 if((index+2)%2==0){
                   return(`
                   <div class="column-fetch-1 border-redondeado">
                     <div class="item-fetch">
                       <img class="item-fetch__img shadow" src="${pet}" alt="perro${index}" />
                       <div class="item-fetch__details">
-                        <p class="item-fetch__name ps-2">Nombre: ${dataName.name.first}</p>
-                        <p class="item-fetch__race ps-2">Raza: ${dataName.name.last}</p>
+                        <p class="item-fetch__name ps-2">Nombre: ${dataName.results[0].name.first}</p>
+                        <p class="item-fetch__race ps-2">Raza: ${dataName.results[0].name.last}</p>
                       </div>
                     </div>
                   </div>
@@ -52,8 +50,8 @@ const HomePerros = async ()=>{
                       <div class="item-fetch ">
                         <img class="item-fetch__img shadow" src="${pet}" alt="perro${index}" />
                         <div class="item-fetch__details">
-                          <p class="item-fetch__name ps-2">Nombre</p>
-                          <p class="item-fetch__race ps-2">Raza</p>
+                          <p class="item-fetch__name ps-2">Nombre: ${dataName.results[0].name.first}</p>
+                          <p class="item-fetch__race ps-2">Raza: ${dataName.results[0].name.last}</p>
                         </div>
                       </div>
                     </div>
@@ -64,13 +62,17 @@ const HomePerros = async ()=>{
               }
               ).join('')
             }
-            
-            
+          </div>
+          <div className="d-flex justify-content-center fetchMore">
+            <a href="#/homeperros/" class="btn rounded-pill btn-primary w-100">
+              <img src="${perros}" alt="perros" />
+              <span>Cargar mas Perros</span>
+            </a>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="Navegador-componente col-12 d-flex bg-light justify-content-around position-fixed">
+        <div class="Navegador-componente col-12 d-flex bg-light justify-content-around position-fixed align-items-center">
           <div id="Nav_home">
             <a class="text-decoration-none btn btn-primary m-1 rounded-pill" href="#/home/">
               <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,4 +1,4 @@
-const API = 'https://dog.ceo/api/breeds/image/random/20';
+const API = 'https://dog.ceo/api/breeds/image/random/10';
 const getDataPerros = async (seleccionado) => {
   const apiURl = seleccionado ? `${seleccionado}` : API;
   try {

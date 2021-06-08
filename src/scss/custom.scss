@@ -2,27 +2,31 @@
 .HomePage {
   min-height: 100vh;
 }
+.contenedor-body-fetch {
+  margin-bottom: 40px;
+}
 .Navegador-componente {
   position: fixed;
+  height: 72px;
   z-index: 3;
   bottom: 0;
   left: 0;
 }
 .fetch {
-  margin: 20px 0 50px 0;
+  margin: 20px 0 20px 0;
   display: grid;
   grid-gap: 5vw;
   grid-template-columns: 45% 45%;
 }
 .column-fetch-1 {
   display: grid;
-  grid-auto-rows: 250px;
+  grid-auto-rows: 40vw;
   gap: 15px;
 }
 
 .column-fetch-2 {
   display: grid;
-  grid-auto-rows: 250px;
+  grid-auto-rows: 40vw;
   gap: 15px;
 }
 .margin-fetch-2 {
@@ -31,10 +35,10 @@
 .item-fetch {
   position: relative;
   border-radius: 16px;
-  height: 250px;
+  height: 40vw;
   z-index: 1;
   .item-fetch__details {
-    height: 250px;
+    height: 40vw;
     width: 100%;
     color: white;
     border-radius: 16px;
