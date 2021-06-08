@@ -1,7 +1,7 @@
 import perros from '../assets/category/perros.png';
 import gatos from '../assets/category/gatos.png';
 
-const Home = ()=>{
+const HomeGatos = ()=>{
   return(`
     <div class="container-fluid HomePage">
       <div class="p-3">
@@ -9,14 +9,35 @@ const Home = ()=>{
         <div class="mascotas-fetch">
           <p class="font-weight-light">Categorias de mascotas</p>
           <div class="d-flex justify-content-around">
-            <a href="#/homeperros/" class="btn rounded-pill btn-primary">
+            <button id="buttonFetchPerros" type="button" class="btn rounded-pill btn-primary" disabled>
             <img src="${perros}" alt="perros" />
               <span>Perros</span>
-            </a>
-            <a href="#/homegatos/" class="btn rounded-pill btn-primary">
+            </button>
+            <button type="button" id="buttonFetchGatos" class="btn rounded-pill btn-primary">
               <img src="${gatos}" alt="gatos" />
               <span>Gatos</span>
-            </a>
+            </button>
+          </div>
+          
+          <div class="fetch">
+            <div class="column-fetch-1 border-redondeado">
+                <div class="item-fetch">
+                  <p>Bloque</p>
+                </div>
+                <div class="item-fetch">
+                  <p>Bloque</p>
+                </div>
+            </div>
+            <div class="margin-fetch-2">
+              <div class="column-fetch-2 border-redondeado">
+                <div class="item-fetch border-redondeado">
+                  <p>Bloque</p>
+                </div>
+                <div class="item-fetch border-redondeado">
+                  <p>Bloque</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -64,4 +85,4 @@ const Home = ()=>{
 }
 
 
-export default Home;
+export default HomeGatos;

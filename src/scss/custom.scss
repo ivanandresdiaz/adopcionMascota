@@ -1,16 +1,66 @@
 @import "../bootstrap-5.0.1/scss/bootstrap.scss";
-
-.HomeIcon path {
-  color: white;
+.HomePage {
+  min-height: 100vh;
 }
-// @font-face {
-//   font-family: "FavoriteIcon";
-//   src: url("../assets/nav/nav_heart.svg") format("svg");
-// }
-// .favoriteIcon {
-//   color: red;
-// }
-// .favoriteIcon:before {
-//   font-family: "FavoriteIcon";
-//   content: "\ed";
-// }
+.Navegador-componente {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+}
+.fetch {
+  margin: 20px 0 50px 0;
+  display: grid;
+  grid-gap: 5vw;
+  grid-template-columns: 45% 45%;
+}
+.column-fetch-1 {
+  display: grid;
+  grid-auto-rows: 250px;
+  gap: 15px;
+}
+
+.column-fetch-2 {
+  display: grid;
+  grid-auto-rows: 250px;
+  gap: 15px;
+}
+.margin-fetch-2 {
+  margin-top: 25px;
+}
+.item-fetch {
+  position: relative;
+  border-radius: 16px;
+  height: 250px;
+  z-index: 1;
+  .item-fetch__details {
+    height: 250px;
+    width: 100%;
+    color: white;
+    border-radius: 16px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .item-fetch__name {
+      margin: 0;
+    }
+  }
+}
+.item-fetch__img {
+  width: 100%;
+  height: 250px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+.border-redondeado {
+  border-radius: 16px;
+}

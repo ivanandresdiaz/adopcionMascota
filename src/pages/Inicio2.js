@@ -1,4 +1,4 @@
-import adoptadas from '../assets/inicio/Adoptado.svg';
+import adoptadas from '../assets/inicio/Adoptado.png';
 
 const Inicio2 = ()=>{
   return(`

@@ -1,4 +1,4 @@
-import mascotas from '../assets/inicio/esperandoadopción.svg'
+import mascotas from '../assets/inicio/esperandoadopcion.png'
 const Inicio1 = ()=>{
   return(`
     <div class="vh-100 vw-90 container-fluid d-flex flex-column justify-content-center align-items-center ">    

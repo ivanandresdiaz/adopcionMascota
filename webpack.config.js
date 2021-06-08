@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const {CleanWebpackPlugin}= require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports={
   entry: './src/index.js',
@@ -62,7 +63,15 @@ module.exports={
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[contenthash].css'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {
+          from:path.resolve(__dirname, "public", "favicon.ico"),
+          to:"assets"
+        }
+      ]
+    })
   ],
   optimization:{
     minimize:true,

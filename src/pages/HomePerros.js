@@ -1,7 +1,16 @@
 import perros from '../assets/category/perros.png';
 import gatos from '../assets/category/gatos.png';
+import getDataPerros from '../utils/getDataPerros';
+import getName from '../utils/getName.js';
 
-const Home = ()=>{
+
+const HomePerros = async ()=>{
+  const requestReady= await getDataPerros();
+  const data= requestReady.message;
+  var requestName= await getName();
+  console.log('requestedNmae',requestName);
+  // const makeIntoStringify= JSON.stringify(data);
+  // sessionStorage.setItem('perros',makeIntoStringify);
   return(`
     <div class="container-fluid HomePage">
       <div class="p-3">
@@ -9,14 +18,54 @@ const Home = ()=>{
         <div class="mascotas-fetch">
           <p class="font-weight-light">Categorias de mascotas</p>
           <div class="d-flex justify-content-around">
-            <a href="#/homeperros/" class="btn rounded-pill btn-primary">
+            <button id="buttonFetchPerros" type="button" class="btn rounded-pill btn-primary">
             <img src="${perros}" alt="perros" />
               <span>Perros</span>
-            </a>
-            <a href="#/homegatos/" class="btn rounded-pill btn-primary">
+            </button>
+            <button type="button" id="buttonFetchGatos" class="btn rounded-pill btn-primary" disabled>
               <img src="${gatos}" alt="gatos" />
               <span>Gatos</span>
-            </a>
+            </button>
+          </div>
+          <div class="fetch">
+            ${
+              data.map((pet, index) => {
+                const dataName= requestName[index];
+                console.log(dataName);
+                if((index+2)%2==0){
+                  return(`
+                  <div class="column-fetch-1 border-redondeado">
+                    <div class="item-fetch">
+                      <img class="item-fetch__img shadow" src="${pet}" alt="perro${index}" />
+                      <div class="item-fetch__details">
+                        <p class="item-fetch__name ps-2">Nombre: ${dataName.name.first}</p>
+                        <p class="item-fetch__race ps-2">Raza: ${dataName.name.last}</p>
+                      </div>
+                    </div>
+                  </div>
+              `)
+                }else{
+                  // sessionStorage.setItem('nombres',JSON.stringify(nombres));
+                  return(`
+                  <div class="margin-fetch-2">
+                    <div class="column-fetch-2 border-redondeado">
+                      <div class="item-fetch ">
+                        <img class="item-fetch__img shadow" src="${pet}" alt="perro${index}" />
+                        <div class="item-fetch__details">
+                          <p class="item-fetch__name ps-2">Nombre</p>
+                          <p class="item-fetch__race ps-2">Raza</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  `);
+                }
+                
+              }
+              ).join('')
+            }
+            
+            
           </div>
         </div>
       </div>
@@ -64,4 +113,5 @@ const Home = ()=>{
 }
 
 
-export default Home;
+
+export default HomePerros;
