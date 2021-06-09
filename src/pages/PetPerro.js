@@ -29,25 +29,28 @@ const PetPerro = ()=>{
             }
             </div>
           </div>
-          <svg onclick=" 
+          <svg onclick="
           function toggleFavorite(){
-            const idPet = parseInt((location.hash.slice(2))[0]);
-            const perroImg = (JSON.parse(localStorage.getItem('perrosImg')))[idPet];
-            const perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
-            const perroNameArray= Object.entries(perroName);
-            const perroImgArray= ['img',perroImg];
+            let idPet = parseInt((location.hash.slice(2))[0]);
+            let perroImg = (JSON.parse(localStorage.getItem('perrosImg')))[idPet];
+            let perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
+            let perroNameArray= Object.entries(perroName);
+            let perroImgArray= ['img',perroImg];
+            let idP= ['idPet',idPet];
             perroNameArray.push(perroImgArray);
-            const storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
-            const path= document.getElementById('path_favorite-pet');
+            perroNameArray.push(idP);
+            let storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+            let path= document.getElementById('path_favorite-pet');
             if(path.getAttribute('fill')=='#D9D4E7'){
               storageFavoritos.push(perroNameArray);
               localStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
               console.log('agregado a Favoritos',JSON.parse(localStorage.getItem('favoritos')));
               path.setAttribute('fill', '#A786DF');
             }else{
-              const storageItemDeleteFavoritos= storageFavoritos[idPet].filter((item, index) => {
-                return (item[1] != perroImgArray[1]);
+              let storageItemDeleteFavoritos= storageFavoritos.filter((item, index) => {
+                return (item[13][1] != idP[1]);
               })
+              console.log(storageItemDeleteFavoritos);
               localStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
               console.log('se elimino', perroImgArray);
               console.log('Nueva Lista',JSON.parse(localStorage.getItem('favoritos')));
