@@ -10,7 +10,36 @@
 }
 .pet-descripcion {
   position: relative;
+  max: width 100vw;
   z-index: 2;
   margin-top: -25px;
   border-radius: 16px 16px 0 0;
+}
+.personality-item {
+  border: 1px solid #a786df;
+  border-radius: 8px;
+  .img-personality-item {
+    width: 70%;
+  }
+  .inquieto {
+    filter: grayscale(100%);
+  }
+}
+.personality-item-inquieto {
+  border: 1px solid #d9d4e7;
+  border-radius: 8px;
+  .img-personality-item {
+    width: 70%;
+  }
+  .inquieto {
+    filter: grayscale(100%);
+  }
+}
+.pet-contacto {
+  height: 72px;
+}
+.contacto-picture {
+  height: 50px;
+  width: 50px;
+  border: 3px solid #85d1ce;
 }

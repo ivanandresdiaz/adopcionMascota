@@ -1,16 +1,18 @@
 import back from '../assets/nav/back.png';
 import genderMale from '../assets/gender/male.png';
 import genderFemale from '../assets/gender/female.png';
-import FavoriteIcon from '../assets/favoritos/Favorito.svg';
+import razaIcon from '../assets/traits/raza.png';
+import edadIcon from '../assets/traits/edad.png';
+import locationIcon from '../assets/traits/location.png';
+import personalityCarinoso from '../assets/personality/Cariñoso.png';
+import personalityInquieto from '../assets/personality/Inquieto.png';
+import personalityJugueton from '../assets/personality/Jugueton.png';
+
 const PetPerro = ()=>{
   const idPet = parseInt((location.hash.slice(2))[0]);
   const perroImg = (JSON.parse(localStorage.getItem('perrosImg')))[idPet];
   const perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
-  // const perroNameArray= Object.entries(perroName);
-  // const perroImgArray= ['img',perroImg];
-  // perroNameArray.push(perroImgArray);
-  // const storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
-  // storageFavoritos.push(itemToStorage);
+
   return(`
     <section class="Pet">
       <div class="pet-imagen-container position-relative">
@@ -20,10 +22,10 @@ const PetPerro = ()=>{
         <img class="pet-imagen" src="${perroImg}" alt="" />
       </div>
       <div class="pet-descripcion vw-100 bg-light">
-        <div class="pet-name-container d-flex justify-content-between px-4 pt-3">
-          <div class="pet-name d-flex align-items-center">
+        <div class="pet-name-container d-flex justify-content-between pt-3">
+          <div class="pet-name d-flex align-items-center px-4">
             <h2 class="m-0">${perroName.name.first}</h2>
-            <div class="container-pet-gender ms-2">
+            <div class="container-pet-gender">
             ${
               perroName.gender=='male'?`<img src="${genderMale}" alt="petMale"/>` : ` <img src="${genderFemale}" alt="petfemale"/>`
             }
@@ -36,7 +38,7 @@ const PetPerro = ()=>{
             let perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
             let perroNameArray= Object.entries(perroName);
             let perroImgArray= ['img',perroImg];
-            let idP= ['idPet',idPet];
+            let idP= ['idPet','p'+idPet];
             perroNameArray.push(perroImgArray);
             perroNameArray.push(idP);
             let storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
@@ -87,35 +89,61 @@ const PetPerro = ()=>{
             </defs>
             </svg>
         </div>
-        <div class="pet-details">
-          <p>Raza</p>
-          <p>Edad</p>
+        <div class="pet-details d-flex justify-content-around">
+          <div class="d-flex align-items-center">
+            <img src="${razaIcon}" alt="raza" />
+            <p class="m-0">${perroName.name.last}</p>
+          </div>
+          <div class="d-flex align-items-center justify-content-start">
+            <img src="${edadIcon}" alt="edad" />
+            <p class="m-0">${perroName.dob.age} meses</p>
+          </div>
         </div>
-        <div class="pet-location">
-          <img src="" alt="" />
-          <p>Localizacion geografica</p>
+        <div class="d-flex align-items-center p-2">
+          <img src="${locationIcon}" alt="" />
+          <p  class="m-0 p-1">Street ${perroName.location.street.number} ${perroName.location.street.name}, ${perroName.location.state} ${perroName.location.country}</p>
         </div>
-        <div class="pet-personality">
-          <button type="button">Cariñoso</button>
-          <button type="button">Inquieto</button>
-          <button type="button">Jugueton</button>
+        <h3 class="px-3">Personalidad</h3>
+        <div class="pet-personality p-2 d-flex justify-content-around">
+          <div class="personality-item p-2 d-flex justify-content-center align-items-center flex-column">
+            <img class="img-personality-item" src="${personalityCarinoso}" alt="" />
+            <p>
+              Cariñoso
+            </p>
+          </div>
+          <div class="personality-item-inquieto p-2 d-flex justify-content-center align-items-center flex-column">
+            <img class="img-personality-item inquieto" src="${personalityInquieto}" alt="" />
+            <p>
+              Inquieto
+            </p>
+          </div>
+          <div class="personality-item p-2 d-flex justify-content-center align-items-center flex-column">
+            <img class="img-personality-item" src="${personalityJugueton}" alt="" />
+            <p>
+              Jugueton
+            </p>
+          </div>
         </div>
-        <div class="historia">
-          <h6>historia de Name</h6>
-          <p>
-            Rocky es un perrito muy lindo y cariñoso, tiene 5 hermanitos más y por cuestiones de espacio y tiempo no podremos cuidar a todos, nuestra misión es encontrar la familia ideal para él y seguro que tú eres la persona indicada.
+        <div class="historia p-4">
+          <h4>Historia de ${perroName.name.first}</h4>
+          <p class="fw-lighter">
+          ${perroName.name.first} es un perrito muy lindo y cariñoso, tiene 5 hermanitos más y por cuestiones de espacio y tiempo no podremos cuidar a todos, nuestra misión es encontrar la familia ideal para él y seguro que tú eres la persona indicada.
           </p>
         </div>
       </div>
-      <div class="pet-contacto">
-        <img src="" alt="contacto" />
-        <div class="datos-contacto">
-          <p> 
-            publicado por
-          </p>
-          <h6>Nombre Random</h6>
+        <div class="pet-contacto row px-4">
+          <div class="col-6 d-flex align-items-center ">
+            <img class="rounded-circle contacto-picture" src="${perroName.picture.thumbnail}" alt="contacto" />
+            <div class="datos-contacto px-2">
+              <p class="m-0 fw-lighter"> 
+                publicado por
+              </p>
+              <h6 class="m-0">${perroName.name.first} ${perroName.name.last}</h6>
+            </div>
+          </div>
+        <div class="col-6 d-flex justify-content-center align-items-center">
+          <button type="button" class="btn btn-primary rounded-pill p-2 px-5">Contactar</button>
         </div>
-        <button type="button" class="btn btn-primary rounded-pill">Contactar</button>
       </div>
     </section>
   `
