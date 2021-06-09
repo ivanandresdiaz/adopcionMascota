@@ -7,8 +7,8 @@ import getName from '../utils/getName.js';
 const HomeGatos = async ()=>{
   const requestName= await getName();
   const data= await getDataGatos();
-  localStorage.setItem('perrosFetch',JSON.stringify(data)); 
-  localStorage.setItem('perrosDueños',JSON.stringify(requestName)); 
+  localStorage.setItem('gatosImg',JSON.stringify(data)); 
+  localStorage.setItem('gatosNames',JSON.stringify(requestName)); 
   return(`
     <div class="container-fluid HomePage">
       <div class="p-3 pb-5 contenedor-body-fetch">
@@ -32,7 +32,7 @@ const HomeGatos = async ()=>{
                 if((index+2)%2==0){
                   return(`
                   <div class="column-fetch-1 border-redondeado">
-                    <a href="#/${index}/">
+                    <a href="#/${index}g/">
                       <div class="item-fetch">
                         <img class="item-fetch__img shadow" src="https://cataas.com${pet}" alt="gato${index}" />
                         <div class="item-fetch__details">
@@ -47,6 +47,7 @@ const HomeGatos = async ()=>{
                   return(`
                   <div class="margin-fetch-2">
                     <div class="column-fetch-2 border-redondeado">
+                    <a href="#/${index}g">
                       <div class="item-fetch ">
                         <img class="item-fetch__img shadow" src="https://cataas.com${pet}" alt="gato${index}" />
                         <div class="item-fetch__details">
@@ -54,6 +55,8 @@ const HomeGatos = async ()=>{
                           <p class="item-fetch__race ps-2 fs-6">Raza: ${dataName.name.last}</p>
                         </div>
                       </div>
+                    </a>
+                    
                     </div>
                   </div>
                   `);

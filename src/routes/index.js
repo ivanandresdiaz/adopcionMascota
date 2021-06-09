@@ -4,7 +4,8 @@ import Inicio2 from '../pages/Inicio2.js';
 import Home from '../pages/Home.js';
 import HomePerros from '../pages/HomePerros.js';
 import HomeGatos from '../pages/HomeGatos.js';
-import Pet from '../pages/Pet.js';
+import PetPerro from '../pages/PetPerro.js';
+import PetGato from '../pages/PetGato.js';
 import Favoritos from '../pages/Favoritos.js';
 import Chat from '../pages/Chat.js';
 import Perfil from '../pages/Perfil.js';
@@ -19,7 +20,8 @@ const routes ={
   '/home':Home,
   '/homeperros':HomePerros,
   '/homegatos':HomeGatos,
-  '/:id': Pet,
+  '/:idp': PetPerro,
+  '/:idg': PetGato,
   '/favoritos':Favoritos,
   '/chat':Chat,
   '/perfil':Perfil

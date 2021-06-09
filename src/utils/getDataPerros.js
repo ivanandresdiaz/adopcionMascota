@@ -1,4 +1,4 @@
-const API = 'https://cataas.com/cat/cute';
+const API = 'https://dog.ceo/api/breeds/image/random/10';
 const getDataPerros = async () => {
   try {
     const response = await fetch(API);

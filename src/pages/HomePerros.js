@@ -5,11 +5,9 @@ import getName from '../utils/getName.js';
 
 const HomePerros = async ()=>{
   const requestName= await getName();
-  console.log(requestName);
   const data= await getDataPerros();
-  console.log(data);
-  localStorage.setItem('perrosFetch',JSON.stringify(data)); 
-  localStorage.setItem('perrosDueños',JSON.stringify(requestName)); 
+  localStorage.setItem('perrosImg',JSON.stringify(data)); 
+  localStorage.setItem('perrosNames',JSON.stringify(requestName)); 
   return(`
     <div class="container-fluid HomePage">
       <div class="p-3 pb-5 contenedor-body-fetch">
@@ -33,7 +31,7 @@ const HomePerros = async ()=>{
                 if((index+2)%2==0){
                   return(`
                   <div class="column-fetch-1 border-redondeado">
-                    <a href="#/${index}/">
+                    <a href="#/${index}p/">
                       <div class="item-fetch">
                         <img class="item-fetch__img shadow" src="${pet}" alt="perro${index}" />
                         <div class="item-fetch__details">
@@ -48,13 +46,16 @@ const HomePerros = async ()=>{
                   return(`
                   <div class="margin-fetch-2">
                     <div class="column-fetch-2 border-redondeado">
-                      <div class="item-fetch ">
+                      <a href="#/${index}p">
+                        <div class="item-fetch ">
                         <img class="item-fetch__img shadow" src="${pet}" alt="perro${index}" />
                         <div class="item-fetch__details">
                           <p class="item-fetch__name ps-2 fs-6">Nombre: ${dataName.name.first}</p>
                           <p class="item-fetch__race ps-2 fs-6">Raza: ${dataName.name.last}</p>
                         </div>
                       </div>
+                      </a>
+                      
                     </div>
                   </div>
                   `);
