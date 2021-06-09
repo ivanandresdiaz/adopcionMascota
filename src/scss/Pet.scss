@@ -1,0 +1,16 @@
+.pet-imagen-container {
+  display: relative;
+  z-index: 1;
+}
+.pet-imagen {
+  max-height: 380px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.pet-descripcion {
+  position: relative;
+  z-index: 2;
+  margin-top: -25px;
+  border-radius: 16px 16px 0 0;
+}

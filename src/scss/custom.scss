@@ -1,4 +1,5 @@
 @import "../bootstrap-5.0.1/scss/bootstrap.scss";
+@import "./Pet.scss";
 .HomePage {
   min-height: 100vh;
 }
@@ -64,6 +65,7 @@
   height: 250px;
   border-radius: 16px;
   object-fit: cover;
+  object-position: center;
 }
 .border-redondeado {
   border-radius: 16px;
