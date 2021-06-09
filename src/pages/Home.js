@@ -21,7 +21,7 @@ const Home = ()=>{
         </div>
       </div>
       <div class="row">
-        <div class="Navegador-componente col-12 d-flex bg-light justify-content-around position-fixed">
+        <div class="Navegador-componente col-12 d-flex bg-light justify-content-around position-fixed align-items-center">
           <div id="Nav_home">
             <a class="text-decoration-none btn btn-primary m-1 rounded-pill" href="#/home/">
               <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

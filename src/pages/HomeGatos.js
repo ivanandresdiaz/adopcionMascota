@@ -1,15 +1,22 @@
 import perros from '../assets/category/perros.png';
 import gatos from '../assets/category/gatos.png';
+import getDataGatos from '../utils/getDataGatos.js';
+import getName from '../utils/getName.js';
 
-const HomeGatos = ()=>{
+
+const HomeGatos = async ()=>{
+  const requestName= await getName();
+  const data= await getDataGatos();
+  localStorage.setItem('perrosFetch',JSON.stringify(data)); 
+  localStorage.setItem('perrosDueños',JSON.stringify(requestName)); 
   return(`
     <div class="container-fluid HomePage">
-      <div class="p-3">
+      <div class="p-3 pb-5 contenedor-body-fetch">
         <h1 class="font-weight-bold">Adopta una adorable mascota  </h1>
         <div class="mascotas-fetch">
           <p class="font-weight-light">Categorias de mascotas</p>
           <div class="d-flex justify-content-around">
-            <button id="buttonFetchPerros" type="button" class="btn rounded-pill btn-primary" disabled>
+            <button id="buttonFetchPerros" type="button" class="btn rounded-pill btn-primary disabled">
             <img src="${perros}" alt="perros" />
               <span>Perros</span>
             </button>
@@ -18,31 +25,48 @@ const HomeGatos = ()=>{
               <span>Gatos</span>
             </button>
           </div>
-          
           <div class="fetch">
-            <div class="column-fetch-1 border-redondeado">
-                <div class="item-fetch">
-                  <p>Bloque</p>
-                </div>
-                <div class="item-fetch">
-                  <p>Bloque</p>
-                </div>
-            </div>
-            <div class="margin-fetch-2">
-              <div class="column-fetch-2 border-redondeado">
-                <div class="item-fetch border-redondeado">
-                  <p>Bloque</p>
-                </div>
-                <div class="item-fetch border-redondeado">
-                  <p>Bloque</p>
-                </div>
-              </div>
-            </div>
+            ${
+              data.map((pet, index) => {
+                const dataName = requestName[index];
+                if((index+2)%2==0){
+                  return(`
+                  <div class="column-fetch-1 border-redondeado">
+                    <a href="#/${index}/">
+                      <div class="item-fetch">
+                        <img class="item-fetch__img shadow" src="https://cataas.com${pet}" alt="gato${index}" />
+                        <div class="item-fetch__details">
+                          <p class="item-fetch__name ps-2">Nombre: ${dataName.name.first}</p>
+                          <p class="item-fetch__race ps-2">Raza: ${dataName.name.last}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+              `)
+                }else{
+                  return(`
+                  <div class="margin-fetch-2">
+                    <div class="column-fetch-2 border-redondeado">
+                      <div class="item-fetch ">
+                        <img class="item-fetch__img shadow" src="https://cataas.com${pet}" alt="gato${index}" />
+                        <div class="item-fetch__details">
+                          <p class="item-fetch__name ps-2 fs-6">Nombre: ${dataName.name.first}</p>
+                          <p class="item-fetch__race ps-2 fs-6">Raza: ${dataName.name.last}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  `);
+                }
+                
+              }
+              ).join('')
+            }
           </div>
-        </div>
+          </div>
       </div>
       <div class="row">
-        <div class="Navegador-componente col-12 d-flex bg-light justify-content-around position-fixed">
+        <div class="Navegador-componente col-12 d-flex bg-light justify-content-around position-fixed align-items-center">
           <div id="Nav_home">
             <a class="text-decoration-none btn btn-primary m-1 rounded-pill" href="#/home/">
               <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,6 +107,5 @@ const HomeGatos = ()=>{
   `
   );
 }
-
 
 export default HomeGatos;

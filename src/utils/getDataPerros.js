@@ -1,9 +1,9 @@
-const API = 'https://dog.ceo/api/breeds/image/random/10';
-const getDataPerros = async (seleccionado) => {
-  const apiURl = seleccionado ? `${seleccionado}` : API;
+const API = 'https://cataas.com/cat/cute';
+const getDataPerros = async () => {
   try {
-    const response = await fetch(apiURl);
-    const data = await response.json();
+    const response = await fetch(API);
+    const dataCasi = await response.json();
+    const data= dataCasi.message;
     return data;
   } catch (error) {
     console.log('Fetch Error', error);

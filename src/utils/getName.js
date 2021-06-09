@@ -1,13 +1,12 @@
 const apiURl = 'https://randomuser.me/api/';
-var dataName=[];
 
 const getName = async () => {
+    let dataName=[];
     for (let i = 0; i < 10; i++) {
       const response = await fetch(apiURl);
       const data = await response.json();
-      dataName.push(data);
+      dataName.push(data.results[0]);
     }
-    console.log('dataName',dataName)
     return dataName;
 };
 
