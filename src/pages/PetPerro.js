@@ -10,13 +10,23 @@ import personalityJugueton from '../assets/personality/Jugueton.png';
 
 const PetPerro = ()=>{
   const idPet = parseInt((location.hash.slice(2))[0]);
+  const storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+  const data = storageFavoritos.map((item)=>{
+    return(
+      Object.fromEntries(item)
+    )
+  })
+  const validacionFavoritos = data.filter((item)=>{
+    return (item.idPet == `${idPet}p`)
+  })
+  console.log('validacion Favoritos',validacionFavoritos)
   const perroImg = (JSON.parse(localStorage.getItem('perrosImg')))[idPet];
   const perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
 
   return(`
     <section class="Pet">
       <div class="pet-imagen-container position-relative">
-        <a class="position-absolute m-3" href="#/Home/">
+        <a class="position-absolute m-3" href="#/home/">
           <img src="${back}" alt="atras" />
         </a>
         <img class="pet-imagen" src="${perroImg}" alt="" />
@@ -38,7 +48,7 @@ const PetPerro = ()=>{
             let perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
             let perroNameArray= Object.entries(perroName);
             let perroImgArray= ['img',perroImg];
-            let idP= ['idPet','p'+idPet];
+            let idP= ['idPet',idPet+'p'];
             perroNameArray.push(perroImgArray);
             perroNameArray.push(idP);
             let storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
@@ -65,7 +75,7 @@ const PetPerro = ()=>{
             <g filter="url(#filter1_d)">
             <circle cx="35" cy="31" r="21" fill="white"/>
             </g>
-            <path id="path_favorite-pet" d="M34.5877 26.1622C33.2514 24.8232 29.8342 22.8819 26.6787 25.6805C23.5069 28.4935 26.3483 32.5455 28.1654 34.2199L34.5672 40.7085V40.75L34.5877 40.7292L34.6082 40.75V40.7085L41.0099 34.2199C42.8271 32.5455 45.6685 28.4935 42.4967 25.6805C39.3412 22.8819 35.924 24.8232 34.5877 26.1622Z" fill="#D9D4E7"/>
+            <path id="path_favorite-pet" d="M34.5877 26.1622C33.2514 24.8232 29.8342 22.8819 26.6787 25.6805C23.5069 28.4935 26.3483 32.5455 28.1654 34.2199L34.5672 40.7085V40.75L34.5877 40.7292L34.6082 40.75V40.7085L41.0099 34.2199C42.8271 32.5455 45.6685 28.4935 42.4967 25.6805C39.3412 22.8819 35.924 24.8232 34.5877 26.1622Z" fill="${(validacionFavoritos.length >0?'#A786DF':'#D9D4E7')}"/>
             </g>
             <defs>
             <filter id="filter0_d" x="-3" y="-3" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -131,8 +141,8 @@ const PetPerro = ()=>{
           </p>
         </div>
       </div>
-        <div class="pet-contacto row px-4">
-          <div class="col-6 d-flex align-items-center ">
+        <div class="pet-contacto row px-4 m-0 bg-light" >
+          <div class="col-7 d-flex align-items-center ">
             <img class="rounded-circle contacto-picture" src="${perroName.picture.thumbnail}" alt="contacto" />
             <div class="datos-contacto px-2">
               <p class="m-0 fw-lighter"> 
@@ -141,8 +151,8 @@ const PetPerro = ()=>{
               <h6 class="m-0">${perroName.name.first} ${perroName.name.last}</h6>
             </div>
           </div>
-        <div class="col-6 d-flex justify-content-center align-items-center">
-          <button type="button" class="btn btn-primary rounded-pill p-2 px-5">Contactar</button>
+        <div class="col-5 d-flex justify-content-center align-items-center">
+          <button type="button" class="btn btn-primary rounded-pill px-3 ">Contactar</button>
         </div>
       </div>
     </section>

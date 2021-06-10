@@ -1,11 +1,11 @@
 import perros from '../assets/category/perros.png';
 import gatos from '../assets/category/gatos.png';
 import getDataGatos from '../utils/getDataGatos.js';
-import getName from '../utils/getName.js';
+import getNameGatos from '../utils/getNamePerros.js';
 
 
 const HomeGatos = async ()=>{
-  const requestName= await getName();
+  const requestName= await getNameGatos();
   const data= await getDataGatos();
   localStorage.setItem('gatosImg',JSON.stringify(data)); 
   localStorage.setItem('gatosNames',JSON.stringify(requestName)); 
@@ -34,7 +34,7 @@ const HomeGatos = async ()=>{
                   <div class="column-fetch-1 border-redondeado">
                     <a href="#/${index}g/">
                       <div class="item-fetch">
-                        <img class="item-fetch__img shadow" src="https://cataas.com${pet}" alt="gato${index}" />
+                        <img class="item-fetch__img shadow" src="${pet}" alt="gato${index}" />
                         <div class="item-fetch__details">
                           <p class="item-fetch__name ps-2">Nombre: ${dataName.name.first}</p>
                           <p class="item-fetch__race ps-2">Raza: ${dataName.name.last}</p>
@@ -47,9 +47,9 @@ const HomeGatos = async ()=>{
                   return(`
                   <div class="margin-fetch-2">
                     <div class="column-fetch-2 border-redondeado">
-                    <a href="#/${index}g">
-                      <div class="item-fetch ">
-                        <img class="item-fetch__img shadow" src="https://cataas.com${pet}" alt="gato${index}" />
+                    <a href="#/${index}g/">
+                      <div class="item-fetch">
+                        <img class="item-fetch__img shadow" src="${pet}" alt="gato${index}" />
                         <div class="item-fetch__details">
                           <p class="item-fetch__name ps-2 fs-6">Nombre: ${dataName.name.first}</p>
                           <p class="item-fetch__race ps-2 fs-6">Raza: ${dataName.name.last}</p>

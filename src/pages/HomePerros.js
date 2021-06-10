@@ -1,10 +1,10 @@
 import perros from '../assets/category/perros.png';
 import gatos from '../assets/category/gatos.png';
 import getDataPerros from '../utils/getDataPerros';
-import getName from '../utils/getName.js';
+import getNamePerros from '../utils/getNamePerros.js';
 
 const HomePerros = async ()=>{
-  const requestName= await getName();
+  const requestName= await getNamePerros();
   const data= await getDataPerros();
   localStorage.setItem('perrosImg',JSON.stringify(data)); 
   localStorage.setItem('perrosNames',JSON.stringify(requestName)); 

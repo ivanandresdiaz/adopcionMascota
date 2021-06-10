@@ -1,3 +1,6 @@
+.Pet {
+  max-width: 100vw;
+}
 .pet-imagen-container {
   display: relative;
   z-index: 1;
@@ -10,7 +13,7 @@
 }
 .pet-descripcion {
   position: relative;
-  max: width 100vw;
+  max-width: 100vw;
   z-index: 2;
   margin-top: -25px;
   border-radius: 16px 16px 0 0;
@@ -35,9 +38,9 @@
     filter: grayscale(100%);
   }
 }
-.pet-contacto {
-  height: 72px;
-}
+// .pet-contacto {
+//   height: 72px;
+// }
 .contacto-picture {
   height: 50px;
   width: 50px;
