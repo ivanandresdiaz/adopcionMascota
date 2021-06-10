@@ -10,7 +10,7 @@ import personalityJugueton from '../assets/personality/Jugueton.png';
 
 const PetPerro = ()=>{
   const idPet = parseInt((location.hash.slice(2))[0]);
-  const storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+  const storageFavoritos= (JSON.parse(sessionStorage.getItem('favoritos')));
   const data = storageFavoritos.map((item)=>{
     return(
       Object.fromEntries(item)
@@ -20,8 +20,8 @@ const PetPerro = ()=>{
     return (item.idPet == `${idPet}p`)
   })
   console.log('validacion Favoritos',validacionFavoritos)
-  const perroImg = (JSON.parse(localStorage.getItem('perrosImg')))[idPet];
-  const perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
+  const perroImg = (JSON.parse(sessionStorage.getItem('perrosImg')))[idPet];
+  const perroName=(JSON.parse(sessionStorage.getItem('perrosNames')))[idPet];
 
   return(`
     <section class="Pet">
@@ -44,28 +44,28 @@ const PetPerro = ()=>{
           <svg onclick="
           function toggleFavorite(){
             let idPet = parseInt((location.hash.slice(2))[0]);
-            let perroImg = (JSON.parse(localStorage.getItem('perrosImg')))[idPet];
-            let perroName=(JSON.parse(localStorage.getItem('perrosNames')))[idPet];
+            let perroImg = (JSON.parse(sessionStorage.getItem('perrosImg')))[idPet];
+            let perroName=(JSON.parse(sessionStorage.getItem('perrosNames')))[idPet];
             let perroNameArray= Object.entries(perroName);
             let perroImgArray= ['img',perroImg];
             let idP= ['idPet',idPet+'p'];
             perroNameArray.push(perroImgArray);
             perroNameArray.push(idP);
-            let storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+            let storageFavoritos= (JSON.parse(sessionStorage.getItem('favoritos')));
             let path= document.getElementById('path_favorite-pet');
             if(path.getAttribute('fill')=='#D9D4E7'){
               storageFavoritos.push(perroNameArray);
-              localStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
-              console.log('agregado a Favoritos',JSON.parse(localStorage.getItem('favoritos')));
+              sessionStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
+              console.log('agregado a Favoritos',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#A786DF');
             }else{
               let storageItemDeleteFavoritos= storageFavoritos.filter((item, index) => {
                 return (item[13][1] != idP[1]);
               })
               console.log(storageItemDeleteFavoritos);
-              localStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
+              sessionStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
               console.log('se elimino', perroImgArray);
-              console.log('Nueva Lista',JSON.parse(localStorage.getItem('favoritos')));
+              console.log('Nueva Lista',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#D9D4E7');
             }
           }

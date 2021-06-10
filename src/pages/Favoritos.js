@@ -1,6 +1,6 @@
 
 const Favoritos = async ()=>{
-  const storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+  const storageFavoritos= (JSON.parse(sessionStorage.getItem('favoritos')));
   const data = storageFavoritos.map((item)=>{
     return(
       Object.fromEntries(item)

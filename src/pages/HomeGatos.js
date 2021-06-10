@@ -7,8 +7,8 @@ import getNameGatos from '../utils/getNamePerros.js';
 const HomeGatos = async ()=>{
   const data= await getDataGatos();
   const requestName= await getNameGatos();
-  localStorage.setItem('gatosImg',JSON.stringify(data)); 
-  localStorage.setItem('gatosNames',JSON.stringify(requestName)); 
+  sessionStorage.setItem('gatosImg',JSON.stringify(data)); 
+  sessionStorage.setItem('gatosNames',JSON.stringify(requestName)); 
   return(`
     <div class="container-fluid HomePage">
       <div class="p-3 pb-5 contenedor-body-fetch">

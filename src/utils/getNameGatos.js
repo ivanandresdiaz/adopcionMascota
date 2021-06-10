@@ -1,7 +1,7 @@
 const API = 'https://randomuser.me/api/';
 
 const getName = async () => {
-  const gatoNameStorage=JSON.parse(localStorage.getItem('gatosNames'));
+  const gatoNameStorage=JSON.parse(sessionStorage.getItem('gatosNames'));
   if(gatoNameStorage.length > 0){
     return gatoNameStorage
   }else{

@@ -9,9 +9,9 @@ var gatosImg= [];
 var gatosNames= [];
 var perrosNames= [];
 var perrosImg= [];
-localStorage.setItem('favoritos',JSON.stringify(favoritos)); 
-localStorage.setItem('gatosImg',JSON.stringify(gatosImg)); 
-localStorage.setItem('gatosNames',JSON.stringify(gatosNames)); 
-localStorage.setItem('perrosNames',JSON.stringify(perrosNames)); 
-localStorage.setItem('perrosImg',JSON.stringify(perrosImg)); 
+sessionStorage.setItem('favoritos',JSON.stringify(favoritos)); 
+sessionStorage.setItem('gatosImg',JSON.stringify(gatosImg)); 
+sessionStorage.setItem('gatosNames',JSON.stringify(gatosNames)); 
+sessionStorage.setItem('perrosNames',JSON.stringify(perrosNames)); 
+sessionStorage.setItem('perrosImg',JSON.stringify(perrosImg)); 
 

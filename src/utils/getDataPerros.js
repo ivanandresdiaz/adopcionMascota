@@ -1,6 +1,6 @@
 const API = 'https://dog.ceo/api/breeds/image/random/10';
 const getDataPerros = async () => {
-  const perroImgStorage = JSON.parse(localStorage.getItem('perrosImg'))
+  const perroImgStorage = JSON.parse(sessionStorage.getItem('perrosImg'))
     if(perroImgStorage.length > 0){
       return perroImgStorage;
     }else{

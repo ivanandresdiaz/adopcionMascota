@@ -1,7 +1,7 @@
 const apiURl = 'https://randomuser.me/api/';
 
 const getName = async () => {
-  const perroNameStorage=JSON.parse(localStorage.getItem('perrosNames'));
+  const perroNameStorage=JSON.parse(sessionStorage.getItem('perrosNames'));
     if (perroNameStorage.length > 0) {  
       return perroNameStorage;
     }else{

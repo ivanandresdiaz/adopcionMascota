@@ -1,6 +1,6 @@
 const API = 'https://cataas.com/cat?json=true';
 const getDataGatos = async () => {
-  const gatoImgStorage = JSON.parse(localStorage.getItem('gatosImg'));
+  const gatoImgStorage = JSON.parse(sessionStorage.getItem('gatosImg'));
   if(gatoImgStorage.length > 0){
     return gatoImgStorage;
   }else{

@@ -10,9 +10,9 @@ import personalityJugueton from '../assets/personality/Jugueton.png';
 
 const PetGato = ()=>{
   const idPet = parseInt((location.hash.slice(2))[0]);
-  const gatoImg = (JSON.parse(localStorage.getItem('gatosImg')))[idPet];
-  const gatoName=(JSON.parse(localStorage.getItem('gatosNames')))[idPet];
-  const storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+  const gatoImg = (JSON.parse(sessionStorage.getItem('gatosImg')))[idPet];
+  const gatoName=(JSON.parse(sessionStorage.getItem('gatosNames')))[idPet];
+  const storageFavoritos= (JSON.parse(sessionStorage.getItem('favoritos')));
   const data = storageFavoritos.map((item)=>{
     return(
       Object.fromEntries(item)
@@ -42,28 +42,28 @@ const PetGato = ()=>{
           <svg onclick="
           function toggleFavorite(){
             let idPet = parseInt((location.hash.slice(2))[0]);
-            let gatoImg = (JSON.parse(localStorage.getItem('gatosImg')))[idPet];
-            let gatoName=(JSON.parse(localStorage.getItem('gatosNames')))[idPet];
+            let gatoImg = (JSON.parse(sessionStorage.getItem('gatosImg')))[idPet];
+            let gatoName=(JSON.parse(sessionStorage.getItem('gatosNames')))[idPet];
             let gatoNameArray= Object.entries(gatoName);
             let gatoImgArray= ['img',''+gatoImg];
             let idP= ['idPet',idPet+'g'];
             gatoNameArray.push(gatoImgArray);
             gatoNameArray.push(idP);
-            let storageFavoritos= (JSON.parse(localStorage.getItem('favoritos')));
+            let storageFavoritos= (JSON.parse(sessionStorage.getItem('favoritos')));
             let path= document.getElementById('path_favorite-pet');
             if(path.getAttribute('fill')=='#D9D4E7'){
               storageFavoritos.push(gatoNameArray);
-              localStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
-              console.log('agregado a Favoritos',JSON.parse(localStorage.getItem('favoritos')));
+              sessionStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
+              console.log('agregado a Favoritos',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#A786DF');
             }else{
               let storageItemDeleteFavoritos= storageFavoritos.filter((item, index) => {
                 return (item[13][1] != idP[1]);
               })
               console.log(storageItemDeleteFavoritos);
-              localStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
+              sessionStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
               console.log('se elimino', gatoImgArray);
-              console.log('Nueva Lista',JSON.parse(localStorage.getItem('favoritos')));
+              console.log('Nueva Lista',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#D9D4E7');
             }
           }
