@@ -56,16 +56,12 @@ const PetPerro = ()=>{
             if(path.getAttribute('fill')=='#D9D4E7'){
               storageFavoritos.push(perroNameArray);
               sessionStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
-              console.log('agregado a Favoritos',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#A786DF');
             }else{
               let storageItemDeleteFavoritos= storageFavoritos.filter((item, index) => {
                 return (item[13][1] != idP[1]);
               })
-              console.log(storageItemDeleteFavoritos);
               sessionStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
-              console.log('se elimino', perroImgArray);
-              console.log('Nueva Lista',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#D9D4E7');
             }
           }

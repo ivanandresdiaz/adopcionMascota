@@ -54,7 +54,6 @@ const PetGato = ()=>{
             if(path.getAttribute('fill')=='#D9D4E7'){
               storageFavoritos.push(gatoNameArray);
               sessionStorage.setItem('favoritos',JSON.stringify(storageFavoritos)); 
-              console.log('agregado a Favoritos',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#A786DF');
             }else{
               let storageItemDeleteFavoritos= storageFavoritos.filter((item, index) => {
@@ -62,8 +61,6 @@ const PetGato = ()=>{
               })
               console.log(storageItemDeleteFavoritos);
               sessionStorage.setItem('favoritos',JSON.stringify(storageItemDeleteFavoritos)); 
-              console.log('se elimino', gatoImgArray);
-              console.log('Nueva Lista',JSON.parse(sessionStorage.getItem('favoritos')));
               path.setAttribute('fill', '#D9D4E7');
             }
           }

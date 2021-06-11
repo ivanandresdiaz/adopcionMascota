@@ -1,7 +1,7 @@
 import perros from '../assets/category/perros.png';
 import gatos from '../assets/category/gatos.png';
 import getDataGatos from '../utils/getDataGatos.js';
-import getNameGatos from '../utils/getNamePerros.js';
+import getNameGatos from '../utils/getNameGatos.js';
 
 
 const HomeGatos = async ()=>{
